@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script language="javascript" type="text/javascript">
+            function playSound(soundfile) {
+                document.getElementById("dummy").innerHTML=
+                "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+            }
+        </script>
+        
+        <style type='text/css'>
+            #button {
+            margin: auto;
+            border-radius: 50%;
+            height: 500px;
+            width: 500px;
+            background-color: #bbbbbb;
+            }
+            #button:hover {
+            margin: auto;
+            border-radius: 50%;
+            height: 500px;
+            width: 500px;
+            background-color: #cccccc;
+            }
+            h1 {
+            text-align: center;
+            line-height: 500px;
+            }
+            a {
+            color: white;
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id='dummy'></div>
+        <a href="#" onclick="playSound('https://dl.dropbox.com/u/1039058/content/hahgay.wav');"><div id='button'><h1>click when given a hard assignment</h1></div></a>
+    </body>
+</html>

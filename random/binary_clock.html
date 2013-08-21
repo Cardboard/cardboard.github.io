@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style type="text/css">
+        #zero {
+            background: LIGHTGRAY;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;}
+        #one {
+            background: BLACK;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;}
+        div {
+            display: inline-block;}
+        
+    </style>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                binary_hours = 0;
+                binary_minutes = 0;
+                binary_seconds = 0;
+                
+            });
+        </script>
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function () {
+                    update_time(binary_hours, binary_minutes, binary_seconds);
+                    $('#hours').html(binary_hours);
+                    $('#minutes').html(binary_minutes);
+                    $('#seconds').html(binary_seconds);
+                    console.log(binary_hours);
+                    console.log(binary_minutes);
+                    console.log(binary_seconds);
+                }, 1000); // refresh every 10000 milliseconds
+        </script>
+        <script type="text/javascript">
+            function update_time(hours, minutes, seconds) {
+                // get current time
+                var cur_time = new Date();
+                var cur_hours = cur_time.getHours();
+                var cur_minutes = cur_time.getMinutes();
+                var cur_seconds = cur_time.getSeconds();
+                // convert current time to binary
+                binary_hours = toBinary(cur_hours);
+                binary_minutes = toBinary(cur_minutes);
+                binary_seconds = toBinary(cur_seconds);
+            }
+        </script>
+        <script type="text/javascript">
+            function toBinary(num) {
+                var running = true;
+                var i = 0;
+                var digits = [];
+                while (i <= 7) {
+                    digits[i] = num % 2;
+                    num -= (num % 2);
+                    num /= 2;
+
+                    i += 1
+                }
+                digits = digits.reverse();
+                // check if digit is a 1 or 0
+                // and store html/css for appropriate
+                // circle in a new list
+                var circles = []
+                for (i in digits) {
+                    if (digits[i] == 0) {
+                        circles[i] = "<div id='zero'></div>";
+                    }
+                    if (digits[i] == 1) {
+                        circles[i] = "<div id='one'></div>";
+                    }
+                }
+                return circles;
+            }
+        </script>
+    </head>
+    
+    <body>
+        <p id="hours">LOADING</p>
+        <p id="minutes">LOADING</p>
+        <p id="seconds">LOADING</p>
+    </body>
+</html>

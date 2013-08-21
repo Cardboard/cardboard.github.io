@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <style>
+            body{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;}
+            #whocares{
+                z-index: 2;
+                position: relative;
+                width: 358px;
+                height: 200px;
+                margin: auto;
+                top: 10px;
+                background-image: url("https://dl.dropboxusercontent.com/u/1039058/content/who_cares/who_cares_paused.gif");
+                background-repeat: none;}
+            #static{
+                z-index: 1;
+                position: relative;
+                width: 358px;
+                height: 200px;
+                margin: auto;
+                top: -190px;
+                background-image: url("https://dl.dropboxusercontent.com/u/1039058/content/who_cares/static.gif");
+                background-repeat: none;}
+            #tv{
+                z-index: -1;
+                width: 400px;
+                height: 260px;
+                margin: 200px auto auto auto;
+                background-color: #333333;
+                border-color: #DBD076;
+                border-top-width: 35px;
+                border-left-width: 15px;
+                border-right-width: 15px;
+                border-bottom-width: 10px;
+                border-style: groove;
+                border-style: ridge groove solid ridge;}
+            audio{
+                position: relative;
+                left: 50px;
+                top: 20px;}
+            .button{
+                position: relative;
+                display: inline;
+                width: 25px;
+                height: 25px;
+                margin: 20px 10px auto auto;
+                padding-left:10px;
+                right: -250px;
+                top: -175px;
+                -webkit-border-radius: 1em; 
+                -moz-border-radius: 1em;
+                background-color: gray;}
+            #power{
+                background-color: crimson;}
+
+        </style>
+        <script>
+            $(document).ready(function() {
+                paused = true;
+                music = document.getElementById("music");
+                $("#power").click(function() {
+                    if (paused == false) {
+                        pauseMusic();
+                        $("#power").css({'background-color': 'crimson'});
+                        $("#whocares").css({'background-image': 'url("https://dl.dropboxusercontent.com/u/1039058/content/who_cares/who_cares_paused.gif")'})
+                    } else
+                    if (paused == true) {
+                        playMusic();
+                        $("#power").css({'background-color': 'lightgreen'});
+                        $("#whocares").css({'background-image': 'url("https://dl.dropboxusercontent.com/u/1039058/content/who_cares/who_cares.gif")'})
+                    } 
+                }); 
+            });
+            
+            function playMusic() {
+                music.play();
+                paused = false;
+            }
+            function pauseMusic() {
+                music.pause();
+                paused = true;
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="tv">
+            <div id="whocares"></div>
+            <div id="static"></div>
+            <audio id="music" src="https://dl.dropboxusercontent.com/u/1039058/content/who_cares/who_cares.ogg" loop preload></audio>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div id="power" class="button"></div>
+        </div>
+    </body>
+</html>
