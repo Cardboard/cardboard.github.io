@@ -70,10 +70,6 @@
             color: #BFDC1F;
         }
         
-        .secondary p {
-            width: 30em;
-        }
-        
         .color_header {
             color: #D73E14;
         }
@@ -101,19 +97,6 @@
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/music.html">Music</a><span class="color_second">/</span></li>
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/videos.html">Videos</a><span class="color_second">/</span></li>
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/art.html">Art</a><span class="color_second">/</span></li>
-                    <li><span class="color_third">|</span><span class="color_second">+</span><a href="http://www.linkedin.com/pub/matthew-edwards/83/b80/699">LinkedIn</a><span class="color_second">/</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
                     <li><span class="color_blend">~</span></li>
                     <li><span class="color_blend">~</span></li>
                     <li><span class="color_blend">~</span></li>
@@ -147,14 +130,13 @@
             <div class="divider_numbers"></div>
         
             <div class="buffer secondary">
-            <p>Hello, I'm <a href="https://github.com/Cardboard/">matthew</a>.</p>
-            <p>I like to program (mostly small games), do web development, create digital and traditional art, play bass guitar and make music, create stop-motion
-                animations, and play basketball.</p>
-            <p>This site is super new, and so if things look awkward, then it will probably look good at some future time, hopefully.</p>
+                <ul>
+                    <li><a href="https://soundcloud.com/mtmmusic">SoundCloud</a></li>
+                </ul>
             </p>
             </div>
             
-            <div class="hr">~/index.html</div>
+            <div class="hr">~/music.html</div>
         </div>
     </body>
 </html>
