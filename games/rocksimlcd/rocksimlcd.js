@@ -20,31 +20,31 @@ function draw() {
     draw_sprite(canvas, bg, 0, 0);
 
     if (snake_timer_0 <= 0) {
-        draw_sprite(canvas, snake_img[0], 108, 115);
+        draw_sprite(canvas, snake_img[0], 102, 119);
     }
     if (snake_timer_1 <= 0) {
-        draw_sprite(canvas, snake_img[1], 180, 298);
+        draw_sprite(canvas, snake_img[1], 177, 293);
     }
     if (snake_timer_2 <= 0) {
-        draw_sprite(canvas, snake_img[2], 283, 183);
+        draw_sprite(canvas, snake_img[2], 284, 183);
     }
     if (pos == 0 && jump == false) {
-        draw_sprite(canvas, rock_img[0], 156, 126);
+        draw_sprite(canvas, rock_img[0], 148, 125);
     }
     if (pos == 0 && jump) {
         draw_sprite(canvas, rock_img[0], 149-40, 126);
     }
     if (pos == 1 && jump == false) {
-        draw_sprite(canvas, rock_img[1], 290, 337);
+        draw_sprite(canvas, rock_img[1], 289, 337);
     }
     if (pos == 1 && jump) {
-        draw_sprite(canvas, rock_img[1], 290-110, 337);
+        draw_sprite(canvas, rock_img[1], 289-112, 336);
     }
     if (pos == 2 && jump == false) {
-        draw_sprite(canvas, rock_img[2], 392, 205);
+        draw_sprite(canvas, rock_img[2], 391, 203);
     }
     if (pos == 2 && jump) {
-        draw_sprite(canvas, rock_img[2], 392-90, 205);
+        draw_sprite(canvas, rock_img[2], 392-92, 203);
     }
 
     textout(canvas,font,"SCORE: " + score, 410, 120, 10, makecol(0,0,0));
