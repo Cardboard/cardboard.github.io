@@ -3,94 +3,45 @@
 <html>
     <head>
     <title>välkommen till wampastompa.com</title>
-        <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-        
-        <style type="text/css">
-        body{
-            font-family: 'Courier New', Courier, monospace;
-            width: 100%;
-            height: 100%;
-            background-color: #222;
-            color: #ddd;
-        }
-        
-        .window{
-            width: 80%;
-            height: 100%;
-            margin: auto;
-        }
-        
-        .buffer {
-            float: left;
-        }
-        
-        .main {
-            text-align: left;
-        }
-        
-        .secondary {
-            padding-left: 3em;
-        }
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // fill vertical space with ~s
+            var window_height = $(window).height();
+            var text_height = $(".secondary").height();
+            var char_height = $(".color_header").height() // height of a character/line
+            // difference between the text height and window height is what we need
+            // to fill with tildes
+            var fill_height = window_height - text_height;
+            var padding = char_height * 6;
+            fill_height -= padding;
+            // non-negligable, positive number of new lines
+            if (fill_height > char_height) {
+                var new_lines = Math.round(fill_height / char_height);
+                console.log(new_lines);
+                var current_html;
+                for (i=0; i<new_lines; i++) {
+                  var current_html = $("#vertical_fill").html();
+                  current_html += "<li><span class='color_blend'>~</span></li>";
+                  $("#vertical_fill").html(current_html);
 
-        .main ul {
-            list-style-type: none;
-            padding: 0em;
-            padding-right: 3em;
-        }
-        
-        .divider {
-            float: left;
-            width: 0px;
-            height: 50em;
-            padding: 0px;
-            margin-top: 1em;
-            border-left: 3px dashed #ddd;
-            color: red;
-        }
-        
-        .divider_numbers {
-            float: left;
-            width: 0px;
-            height: 50em;
-            padding: 0px;
-            margin-top: 1em;
-            border-left: 2px solid #222;
-            /*border-right: 16px solid #ddd;*/
-        }
-        
-        .hr {
-            float: left;
-            width: 100%;
-            height: 1em;
-            background-color: white;
-            font-size: 1em;
-            color: #222;
-        }
-        
-        a {
-            color: #BFDC1F;
-        }
-        
-        .secondary p {
-            width: 30em;
-        }
-        
-        .color_header {
-            color: #D73E14;
-        }
-        
-        .color_second {
-            color: orange;
-        }
-        
-        .color_third {
-            color: #44C1DD;
-        }
-        
-        .color_blend {
-            color: #777;
-        }
-        </style>
+                  // set height of divider
+                  $(".divider").css("height", window_height - padding);
+
+                }
+                    
+                    
+
+            }
+
+                  
+
+                
+
+        });
+
+    </script>
     </head>
     <body>
         <div class="window">
@@ -102,42 +53,8 @@
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/music.html">Music</a><span class="color_second">/</span></li>
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/videos.html">Videos</a><span class="color_second">/</span></li>
                     <li><span class="color_third">|</span><span class="color_second">+</span><a href="/art.html">Art</a><span class="color_second">/</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
-                    <li><span class="color_blend">~</span></li>
+
+                    <div id="vertical_fill"></div>
                     <li><span class="color_blend">~</span></li>
                 </ul>
             </div>
