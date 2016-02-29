@@ -12,7 +12,25 @@
             }
 
             // get all heights on initial page load
-            calculateHeights();
+            console.log("begin calculateHeights");
+
+            $(".secondary > #secondary_text").load("about.html");
+            HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
+            refreshPage("about");
+            $(".secondary > #secondary_text").load("games.html");
+            HEIGHT_GAMES = $(".secondary > #secondary_text").height();
+            refreshPage("games");
+            $(".secondary > #secondary_text").load("music.html");
+            HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
+            refreshPage("music");
+            $(".secondary > #secondary_text").load("videos.html");
+            HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
+            refreshPage("videos");
+            $(".secondary > #secondary_text").load("art.html");
+            HEIGHT_ART = $(".secondary > #secondary_text").height();
+            refreshPage("art");
+
+            console.log("end calculateHeights");
 
             // initial page refresh
             var current_page = (window.location.hash).substring(1); // ignore "#"
@@ -88,29 +106,6 @@
             }
             console.log("end refreshPage");
         }; // end refreshPage
-
-        // calculate heights on initial load
-        function calculateHeights(start_page) {
-            console.log("begin calculateHeights");
-
-            $(".secondary > #secondary_text").load("about.html");
-            HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
-            refreshPage("about");
-            $(".secondary > #secondary_text").load("games.html");
-            HEIGHT_GAMES = $(".secondary > #secondary_text").height();
-            refreshPage("games");
-            $(".secondary > #secondary_text").load("music.html");
-            HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
-            refreshPage("music");
-            $(".secondary > #secondary_text").load("videos.html");
-            HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
-            refreshPage("videos");
-            $(".secondary > #secondary_text").load("art.html");
-            HEIGHT_ART = $(".secondary > #secondary_text").height();
-            refreshPage("art");
-
-            console.log("end calculateHeights");
-        };
 
         // get stored heights of all pages
         function getHeight(page) {
