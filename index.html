@@ -11,6 +11,13 @@
                 window.location['pathname'] = "index.html";  
             }
 
+            var current_page = (window.location.hash).substring(1); // ignore "#"
+            if (current_page != "") {
+                swapText(current_page);
+            } else {
+                swapText("about"); // default page
+            }
+
             refreshPage();
 
 
@@ -38,14 +45,6 @@
 
 
         function refreshPage () {
-            var current_page = (window.location.hash).substring(1); // ignore "#"
-            if (current_page != "") {
-                swapText(current_page);
-            } else {
-                swapText("about"); // default page
-            }
-
-
             // fill vertical space with ~s
             var window_height = $(window).height();
 
