@@ -25,14 +25,13 @@
             var max_height = window_height;
             if (window_height < secondary_height) { max_height = secondary_height;}
 
-            var text_height = $(".secondary").height();
             var char_height = $(".color_header").height() // height of a character/line
             // difference between the text height and window height is what we need
             // to fill with tildes
-            var fill_height = max_height - text_height;
-            var padding_lines = 7;
+            var fill_height = max_height;
+            var padding_lines = 6;
             var padding = char_height * padding_lines;
-            fill_height -= padding;
+            if (window_height > secondary_height) { fill_height -= padding;}
             // non-negligable, positive number of new lines
             if (fill_height > char_height) {
                 // subtract padding again in next line bc of text on left hand side
@@ -45,7 +44,7 @@
                   $("#vertical_fill").html(current_html);
                   // set height of divider
                 }
-                $(".divider").css("height", max_height - padding);
+                $(".divider").css("height", fill_height + char_height);
             }
 
             $("#about").click(function(){swapText("about")});
