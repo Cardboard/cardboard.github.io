@@ -21,35 +21,36 @@
             refreshPage();
 
 
+            // click functions
             $("#about").click(function(){
-                refreshPage();
                 swapText("about")
+                refreshPage();
             });
             $("#games").click(function(){
-                refreshPage();
                 swapText("games")
+                refreshPage();
             });
             $("#music").click(function(){
-                refreshPage();
                 swapText("music")
+                refreshPage();
             });
             $("#videos").click(function(){
-                refreshPage();
                 swapText("videos")
+                refreshPage();
             });
             $("#art").click(function(){
-                refreshPage();
-                swapText("art")
+                refreshPage(swapText("art"));
             });
         });
 
 
-        function refreshPage () {
+        function refreshPage (HEIGHT) {
             // fill vertical space with ~s
             var window_height = $(window).height();
 
             // get height of secondary buffer text because it might be taller...
-            var secondary_height = $(".secondary > #secondary_text").height();
+            // var secondary_height = $(".secondary > #secondary_text").height();
+            var secondary_height = HEIGHT;
             var fill_height = window_height;
             if (window_height < secondary_height) { fill_height = secondary_height;}
 
@@ -101,6 +102,7 @@
                 $(".secondary > #secondary_text").load("art.html");
                 $(".hr").html("~/art");
             }
+            return $(".secondary > #secondary_text").height();
         };
     </script>
     </head>
