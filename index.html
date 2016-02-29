@@ -52,7 +52,7 @@
             var window_height = $(window).height();
 
             // get height of secondary buffer text because it might be taller...
-            var secondary_height = getHeight(page)
+            var secondary_height = getHeight(page);
             var fill_height = window_height;
             if (window_height < secondary_height) { fill_height = secondary_height;}
             console.log(fill_height);
@@ -95,14 +95,19 @@
 
             $(".secondary > #secondary_text").load("about.html");
             HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
+            refreshPage("about");
             $(".secondary > #secondary_text").load("games.html");
             HEIGHT_GAMES = $(".secondary > #secondary_text").height();
+            refreshPage("games");
             $(".secondary > #secondary_text").load("music.html");
             HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
+            refreshPage("music");
             $(".secondary > #secondary_text").load("videos.html");
             HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
+            refreshPage("videos");
             $(".secondary > #secondary_text").load("art.html");
             HEIGHT_ART = $(".secondary > #secondary_text").height();
+            refreshPage("art");
 
             console.log("end calculateHeights");
         };
