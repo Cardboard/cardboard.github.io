@@ -7,6 +7,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            refreshPage();
+        });
+
+        function refreshPage () {
             // set the default text for the secondary buffer
             $(".secondary > #secondary_text").load("about.html");
             var current_page = (window.location.hash).substring(1); // ignore "#"
@@ -55,8 +59,7 @@
             $("#music").click(function(){swapText("music")});
             $("#videos").click(function(){swapText("videos")});
             $("#art").click(function(){swapText("art")});
-
-        });
+        }
         
         // control different "pages"
         function swapText(page) {
