@@ -7,8 +7,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $("#about").click(function(){
+                refreshPage();
+                swapText("about")});
+            $("#games").click(function(){
+                refreshPage();
+                swapText("games")});
+            $("#music").click(function(){
+                refreshPage();
+                swapText("music")});
+            $("#videos").click(function(){
+                refreshPage();
+                swapText("videos")});
+            $("#art").click(function(){
+                refreshPage();
+                swapText("art")});
+
             refreshPage();
         });
+
 
         function refreshPage () {
             // set the default text for the secondary buffer
@@ -43,6 +60,10 @@
                 // subtract padding again in next line bc of text on left hand side
                 var new_lines = Math.round(fill_height / char_height - padding_lines );
                 var current_html;
+
+                // reset #vertical_fill so that each click doesn't add more tildes
+                $("#vertical_fill").html("");
+
                 // create new tilde lines
                 for (i=0; i<new_lines; i++) {
                   var current_html = $("#vertical_fill").html();
@@ -53,13 +74,7 @@
                 // set height of divider
                 $(".divider").css("height", fill_height + char_height);
             }
-
-            $("#about").click(function(){swapText("about")});
-            $("#games").click(function(){swapText("games")});
-            $("#music").click(function(){swapText("music")});
-            $("#videos").click(function(){swapText("videos")});
-            $("#art").click(function(){swapText("art")});
-        }
+        }; // end refreshPage
         
         // control different "pages"
         function swapText(page) {
@@ -79,7 +94,6 @@
                 $(".secondary > #secondary_text").load("art.html");
                 $(".hr").html("~/art");
             }
-            refreshPage();
         };
     </script>
     </head>
