@@ -15,29 +15,32 @@
             var current_page = (window.location.hash).substring(1); // ignore "#"
             if (current_page != "") {
                 refreshPage(swapText(current_page));
+                location.reload();
             } else {
                 refreshPage(swapText("about"));
+                location.reload();
             }
 
             // click functions
             $("#about").click(function(){
-                swapText("about")
                 refreshPage(swapText("about"));
+                location.reload();
             });
             $("#games").click(function(){
-                swapText("games")
                 refreshPage(swapText("games"));
+                location.reload();
             });
             $("#music").click(function(){
-                swapText("music")
                 refreshPage(swapText("music"));
+                location.reload();
             });
             $("#videos").click(function(){
-                swapText("videos")
                 refreshPage(swapText("videos"));
+                location.reload();
             });
             $("#art").click(function(){
                 refreshPage(swapText("art"));
+                location.reload();
             });
         });
 
