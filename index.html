@@ -24,19 +24,22 @@
             // difference between the text height and window height is what we need
             // to fill with tildes
             var fill_height = window_height - text_height;
-            var padding = char_height * 6;
+            var padding_lines = 7;
+            var padding = char_height * padding_lines;
             fill_height -= padding;
             // non-negligable, positive number of new lines
             if (fill_height > char_height) {
-                var new_lines = Math.round(fill_height / char_height);
+                // subtract padding again in next line bc of text on left hand side
+                var new_lines = Math.round(fill_height / char_height - padding_lines );
                 var current_html;
+                // create new tilde lines
                 for (i=0; i<new_lines; i++) {
                   var current_html = $("#vertical_fill").html();
                   current_html += "<li><span class='color_blend'>~</span></li>";
                   $("#vertical_fill").html(current_html);
                   // set height of divider
-                  $(".divider").css("height", window_height - padding);
                 }
+                $(".divider").css("height", window_height - padding);
             }
 
             $("#about").click(function(){swapText("about")});
