@@ -11,56 +11,50 @@
                 window.location['pathname'] = "index.html";  
             }
 
-            // get all heights on initial page load
-            console.log("begin calculateHeights");
-
-            $(".secondary > #secondary_text").load("about.html");
-            HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
-            refreshPage("about");
-            $(".secondary > #secondary_text").load("games.html");
-            HEIGHT_GAMES = $(".secondary > #secondary_text").height();
-            refreshPage("games");
-            $(".secondary > #secondary_text").load("music.html");
-            HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
-            refreshPage("music");
-            $(".secondary > #secondary_text").load("videos.html");
-            HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
-            refreshPage("videos");
-            $(".secondary > #secondary_text").load("art.html");
-            HEIGHT_ART = $(".secondary > #secondary_text").height();
-            refreshPage("art");
-
-            console.log("end calculateHeights");
-
             // initial page refresh
             var current_page = (window.location.hash).substring(1); // ignore "#"
             if (current_page != "") {
                 swapText(current_page);
+                setTimeout(function() {
+                refreshPage(current_page);
+                }, 3000);
             } else {
                 swapText("about");
+                setTimeout(function() {
                 refreshPage("about");
+                }, 3000);
             }
 
             // click functions
             $("#about").click(function(){
                 swapText("about");
+                setTimeout(function() {
                 refreshPage("about");
+                }, 3000);
             });
             $("#games").click(function(){
                 swapText("games");
+                setTimeout(function() {
                 refreshPage("games");
+                }, 3000);
             });
             $("#music").click(function(){
                 swapText("music");
+                setTimeout(function() {
                 refreshPage("music");
+                }, 3000);
             });
             $("#videos").click(function(){
                 swapText("videos");
+                setTimeout(function() {
                 refreshPage("videos");
+                }, 3000);
             });
             $("#art").click(function(){
                 swapText("art");
+                setTimeout(function() {
                 refreshPage("art");
+                }, 3000);
             });
         });
 
@@ -70,7 +64,7 @@
             var window_height = $(window).height();
 
             // get height of secondary buffer text because it might be taller...
-            var secondary_height = getHeight(page);
+            var secondary_height = $(".secondary > #secondary_text").height();
             var fill_height = window_height;
             if (window_height < secondary_height) { fill_height = secondary_height;}
             console.log(fill_height);
@@ -107,23 +101,6 @@
             console.log("end refreshPage");
         }; // end refreshPage
 
-        // get stored heights of all pages
-        function getHeight(page) {
-            console.log("begin getHeight");
-            if (page == "about") {
-                return HEIGHT_ABOUT;
-            } else if (page == "games") {
-                return HEIGHT_GAMES;
-            } else if (page == "music") {
-                return HEIGHT_MUSIC;
-            } else if (page == "videos") {
-                return HEIGHT_VIDEOS;
-            } else if (page == "art") {
-                return HEIGHT_ART;
-            }
-            console.log("end getHeight");
-        };
-        
         // control different "pages"
         function swapText(page) {
             console.log("begin swapText");
