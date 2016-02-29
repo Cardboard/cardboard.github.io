@@ -92,22 +92,17 @@
         function calculateHeights(start_page) {
             console.log("begin calculateHeights");
 
-            if (page == "about") {
-                $(".secondary > #secondary_text").load("about.html");
-                HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
-            } else if (page == "games") {
-                $(".secondary > #secondary_text").load("games.html");
-                HEIGHT_GAMES = $(".secondary > #secondary_text").height();
-            } else if (page == "music") {
-                $(".secondary > #secondary_text").load("music.html");
-                HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
-            } else if (page == "videos") {
-                $(".secondary > #secondary_text").load("videos.html");
-                HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
-            } else if (page == "art") {
-                $(".secondary > #secondary_text").load("art.html");
-                HEIGHT_ART = $(".secondary > #secondary_text").height();
-            }
+            $(".secondary > #secondary_text").load("about.html");
+            HEIGHT_ABOUT = $(".secondary > #secondary_text").height();
+            $(".secondary > #secondary_text").load("games.html");
+            HEIGHT_GAMES = $(".secondary > #secondary_text").height();
+            $(".secondary > #secondary_text").load("music.html");
+            HEIGHT_MUSIC = $(".secondary > #secondary_text").height();
+            $(".secondary > #secondary_text").load("videos.html");
+            HEIGHT_VIDEOS = $(".secondary > #secondary_text").height();
+            $(".secondary > #secondary_text").load("art.html");
+            HEIGHT_ART = $(".secondary > #secondary_text").height();
+
             console.log("end calculateHeights");
         };
 
