@@ -17,12 +17,12 @@
                 swapText(current_page);
                 setTimeout(function() {
                 refreshPage(current_page);
-                }, 3000);
+                }, 200);
             } else {
                 swapText("about");
                 setTimeout(function() {
                 refreshPage("about");
-                }, 3000);
+                }, 200);
             }
 
             // click functions
@@ -30,36 +30,35 @@
                 swapText("about");
                 setTimeout(function() {
                 refreshPage("about");
-                }, 3000);
+                }, 200);
             });
             $("#games").click(function(){
                 swapText("games");
                 setTimeout(function() {
                 refreshPage("games");
-                }, 3000);
+                }, 200);
             });
             $("#music").click(function(){
                 swapText("music");
                 setTimeout(function() {
                 refreshPage("music");
-                }, 3000);
+                }, 200);
             });
             $("#videos").click(function(){
                 swapText("videos");
                 setTimeout(function() {
                 refreshPage("videos");
-                }, 3000);
+                }, 200);
             });
             $("#art").click(function(){
                 swapText("art");
                 setTimeout(function() {
                 refreshPage("art");
-                }, 3000);
+                }, 200);
             });
         });
 
         function refreshPage (page) {
-            console.log("begin refreshPage");
             // fill vertical space with ~s
             var window_height = $(window).height();
 
@@ -67,8 +66,6 @@
             var secondary_height = $(".secondary > #secondary_text").height();
             var fill_height = window_height;
             if (window_height < secondary_height) { fill_height = secondary_height;}
-            console.log(fill_height);
-            console.log(secondary_height);
 
             var char_height = $(".color_header").height() // height of a character/line
             // difference between the text height and window height is what we need
@@ -98,12 +95,10 @@
                 // set height of divider
                 $(".divider").css("height", fill_height + char_height);
             }
-            console.log("end refreshPage");
         }; // end refreshPage
 
         // control different "pages"
         function swapText(page) {
-            console.log("begin swapText");
             if (page == "about") {
                 $(".secondary > #secondary_text").load("about.html");
                 $(".hr").html("~/about");
@@ -120,7 +115,6 @@
                 $(".secondary > #secondary_text").load("art.html");
                 $(".hr").html("~/art");
             }
-            console.log("end swapText");
         };
     </script>
     </head>
