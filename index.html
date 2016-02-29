@@ -19,43 +19,44 @@
             if (current_page != "") {
                 swapText(current_page);
             } else {
-                refreshPage();
                 swapText("about");
+                refreshPage("about");
             }
 
             // click functions
             $("#about").click(function(){
-                refreshPage();
                 swapText("about");
+                refreshPage("about");
             });
             $("#games").click(function(){
-                refreshPage();
                 swapText("games");
+                refreshPage("games");
             });
             $("#music").click(function(){
-                refreshPage();
                 swapText("music");
+                refreshPage("music");
             });
             $("#videos").click(function(){
-                refreshPage();
                 swapText("videos");
+                refreshPage("videos");
             });
             $("#art").click(function(){
-                refreshPage();
                 swapText("art");
+                refreshPage("art");
             });
         });
 
-        function refreshPage () {
+        function refreshPage (page) {
             console.log("begin refreshPage");
             // fill vertical space with ~s
             var window_height = $(window).height();
 
             // get height of secondary buffer text because it might be taller...
-            var secondary_height = $(".secondary > #secondary_text").height();
+            var secondary_height = getHeight(page)
             var fill_height = window_height;
             if (window_height < secondary_height) { fill_height = secondary_height;}
             console.log(fill_height);
+            console.log(secondary_height);
 
             var char_height = $(".color_header").height() // height of a character/line
             // difference between the text height and window height is what we need
