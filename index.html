@@ -9,7 +9,7 @@
         $(document).ready(function() {
             // set the default text for the secondary buffer
             $(".secondary > #secondary_text").load("about.html");
-            var current_page = window.location.hash;
+            var current_page = (window.location.hash).substring(1); // ignore "#"
             if (current_page != "") {
                 swapText(current_page);
             } else {
@@ -19,11 +19,17 @@
 
             // fill vertical space with ~s
             var window_height = $(window).height();
+
+            // get height of secondary buffer text because it might be taller...
+            var secondary_height = $(".secondary > #secondary_text").height();
+            var max_height = window_height;
+            if (window_height < secondary_height) { max_height = secondary_height;}
+
             var text_height = $(".secondary").height();
             var char_height = $(".color_header").height() // height of a character/line
             // difference between the text height and window height is what we need
             // to fill with tildes
-            var fill_height = window_height - text_height;
+            var fill_height = max_height - text_height;
             var padding_lines = 7;
             var padding = char_height * padding_lines;
             fill_height -= padding;
@@ -39,7 +45,7 @@
                   $("#vertical_fill").html(current_html);
                   // set height of divider
                 }
-                $(".divider").css("height", window_height - padding);
+                $(".divider").css("height", max_height - padding);
             }
 
             $("#about").click(function(){swapText("about")});
