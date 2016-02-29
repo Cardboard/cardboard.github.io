@@ -11,32 +11,30 @@
                 window.location['pathname'] = "index.html";  
             }
 
+            // initial page refresh
             var current_page = (window.location.hash).substring(1); // ignore "#"
             if (current_page != "") {
-                swapText(current_page);
+                refreshPage(swapText(current_page));
             } else {
-                swapText("about"); // default page
+                refreshPage(swapText("about"));
             }
-
-            refreshPage();
-
 
             // click functions
             $("#about").click(function(){
                 swapText("about")
-                refreshPage();
+                refreshPage(swapText("about"));
             });
             $("#games").click(function(){
                 swapText("games")
-                refreshPage();
+                refreshPage(swapText("games"));
             });
             $("#music").click(function(){
                 swapText("music")
-                refreshPage();
+                refreshPage(swapText("music"));
             });
             $("#videos").click(function(){
                 swapText("videos")
-                refreshPage();
+                refreshPage(swapText("videos"));
             });
             $("#art").click(function(){
                 refreshPage(swapText("art"));
