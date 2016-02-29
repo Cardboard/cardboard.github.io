@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google's jQuery library and fonts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Slab' rel='stylesheet' type='text/css'>
+    <!-- CSS link -->
+    <link rel='stylesheet' type='text/css' href='index.css'>
+    
+    <!-- Adjusts font sizes based on browser size -->
+    <script>
+        $(document).ready(function() {
+            var pageHeight = $(window).height();
+            $('.table_main td').css({'font-size': pageHeight * 0.075});
+            
+            state = 'home';
+            
+            //state == 'home'
+            home = 'Home'
+            home_hidden = 'Matthew Edwards'
+            prog = 'Programming / Electronics'
+            other = 'Art / Music / Etc.'
+            //state == 'prog'
+            prog_media = '<a href="prog_media.html">Programming Videos</a><br><a href="elec_media.html">Electronics Videos</a>'
+            prog_code = '<a href="prog_code.html">Images</a>'
+            //state == 'other'
+            other_media = '<a href="other_videos.html">Videos</a><br><a href="other_images.html">Images</a>'
+            other_music = '<a href="https://soundcloud.com/mtmmusic">Music</a>'
+            
+        });    
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            // 'HOME'
+                $('#1:parent').click(function() {
+                    if (state != 'home') {
+                    $('#1, #2, #3').fadeOut('fast', function() {
+                        $('#1').html(home_hidden).fadeIn('fast');
+                        $('#2').html(prog).fadeIn('fast');
+                        $('#3').html(other).fadeIn('fast');
+                    }).toggleClass('highlight');
+                
+                    state = 'home'
+                }
+            });
+            
+            // 'PROG'
+            $('#2:parent').click(function() {
+                if (state == 'home') {
+                    $('#1, #2, #3').fadeOut('fast', function() {
+                        $('#1').html(home).fadeIn('fast');
+                        $('#2').html(prog_media).fadeIn('fast');
+                        $('#3').html(prog_code).fadeIn('fast');
+                    }).toggleClass('highlight');
+                    
+                    state = 'prog'
+                }
+            });
+
+            // 'OTHER'
+            $('#3:parent').click(function() {
+                if (state == 'home') {
+                    $('#1, #2, #3').fadeOut('fast', function() {
+                        $('#1').html(home).fadeIn('fast');
+                        $('#2').html(other_media).fadeIn('fast');
+                        $('#3').html(other_music).fadeIn('fast');
+                    }).toggleClass('highlight');
+                    
+                    state = 'other'
+                }
+            });
+        });
+        
+    </script>
+    
+</head>
+
+<body bgcolor='#E5FFFE'>
+    
+    <table class='table_main'>
+        <tr>
+            <td><h2 id='1' class=''>Matthew Edwards</h2></td>
+        </tr>
+        <tr>
+            <td><h2 id='2' class='highlight'>Programming / Electronics</h2></td>
+        </tr>
+        <tr>
+            <td><h2 id='3' class='highlight'>Art / Music / Etc.</h2></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

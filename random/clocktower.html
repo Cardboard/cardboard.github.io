@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+
+	<!-- CLOCKTOWER COUNTDOWN 
+		by cardboard
+		
+		image grabbed by mrespman (deviantart: http://mrespman.deviantart.com/art/Majora-s-Mask-Moon-75814440?q=gallery%3Amrespman&qo=0)
+
+		to-do (maybe): 
+		    -better background image (or delete bg image)
+		    -hours, minutes, seconds 
+		    -have different image for evening 
+	-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+	<script>
+		$(document).ready(function(){
+			// Calculate date crap 
+			var hash = window.location.hash;
+			var datehash = hash.replace("#","");
+			var year = datehash.substring(0,2);
+			var month = datehash.substring(2,4);
+			var day = datehash.substring(4,6);
+			var datestr = "20" + year + "/" + month + "/" + day;
+			var enddate = new Date(datestr);
+			var now = new Date();
+			var hour = now.getHours();
+
+			// Calculate difference between the dates
+			var DAY_MS = 24 * 60 * 60 * 1000;
+			var HOUR_MS = 60 * 60 * 1000;
+			var end_ms = enddate.getTime();
+			var now_ms = now.getTime();
+			var diff_ms = end_ms - now_ms;
+			var diff_days = Math.round(diff_ms/DAY_MS);
+			var diff_hours = Math.round(diff_ms/HOUR_MS);
+
+			// Figure out which time of day it is
+			var tod = ""; // Time Of Day
+			if (hour <= 6) {
+				tod = "Dawn of";
+			} else if (hour <= 12) {
+				tod = "Morning of";
+			} else if (hour <= 20) {
+				tod = "Evening of";
+			} else {
+				tod = "Night of";
+			}
+
+			// Figure out which text to display for the date and hours
+			var daysleft = "";
+			var hoursleft = "";
+			if (diff_ms <= 0) { // End date has already passed
+				tod = "";
+				daysleft = "The Day Has Passed";
+				hoursleft = "";
+			}
+			else if (diff_ms <= DAY_MS) { // < One day remains
+				daysleft = "The Final Day";
+				hoursleft = "-" + diff_hours + " Hours Remain-";
+			}
+			else {
+				daysleft = now.getMonth()+1 + "/" + now.getDate() + "/" + now.getFullYear();
+				hoursleft = "-" + diff_hours + " Hours Remain-";
+			}
+					
+
+			// Set all the html
+			$("#tod").html(tod);
+			$("#days").html(daysleft);
+			$("#hours").html(hoursleft);
+
+		});
+	</script>
+
+	<style type="text/css">
+		body {
+			background-image: url(http://fc03.deviantart.net/fs24/i/2008/028/e/b/Majora__s_Mask_Moon_by_mrespman.png);
+			background-repeat: no-repeat;
+			background-color: black;
+			color: white;
+			font-family: 'Roboto', sans-serif;
+			}
+		#background {
+			margin-left: auto;
+			margin-top: 6em;
+			
+			}
+		#text {
+			font-size: 4em;
+			font-weight: 900;
+			text-align: center;
+			}
+			
+	</style>
+</head>
+<body>
+	<div id="background">
+		<div id="text">
+			<p id="tod"></p>
+			<p id="days"></p>
+			<p id="hours"></p>
+		</div>
+	</div>
+</body>
+</html>

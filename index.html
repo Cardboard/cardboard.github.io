@@ -1,1 +1,106 @@
+<<<<<<< HEAD
 My GitHub Page
+=======
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+    <head>
+    <title>välkommen till wampastompa.com</title>
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // set the default text for the secondary buffer
+            $(".secondary > #secondary_text").load("about.html");
+            var current_page = window.location.hash;
+            if (current_page != "") {
+                swapText(current_page);
+            } else {
+                swapText("about"); // default page
+            }
+
+
+            // fill vertical space with ~s
+            var window_height = $(window).height();
+            var text_height = $(".secondary").height();
+            var char_height = $(".color_header").height() // height of a character/line
+            // difference between the text height and window height is what we need
+            // to fill with tildes
+            var fill_height = window_height - text_height;
+            var padding = char_height * 6;
+            fill_height -= padding;
+            // non-negligable, positive number of new lines
+            if (fill_height > char_height) {
+                var new_lines = Math.round(fill_height / char_height);
+                var current_html;
+                for (i=0; i<new_lines; i++) {
+                  var current_html = $("#vertical_fill").html();
+                  current_html += "<li><span class='color_blend'>~</span></li>";
+                  $("#vertical_fill").html(current_html);
+                  // set height of divider
+                  $(".divider").css("height", window_height - padding);
+                }
+            }
+
+            $("#about").click(function(){swapText("about")});
+            $("#games").click(function(){swapText("games")});
+            $("#music").click(function(){swapText("music")});
+            $("#videos").click(function(){swapText("videos")});
+            $("#art").click(function(){swapText("art")});
+
+        });
+        
+        // control different "pages"
+        function swapText(page) {
+            if (page == "about") {
+                $(".secondary > #secondary_text").load("about.html");
+                $(".hr").html("~/about");
+            } else if (page == "games") {
+                $(".secondary > #secondary_text").load("games.html");
+                $(".hr").html("~/games");
+            } else if (page == "music") {
+                $(".secondary > #secondary_text").load("music.html");
+                $(".hr").html("~/music");
+            } else if (page == "videos") {
+                $(".secondary > #secondary_text").load("videos.html");
+                $(".hr").html("~/videos");
+            } else if (page == "art") {
+                $(".secondary > #secondary_text").load("art.html");
+                $(".hr").html("~/art");
+            }
+        };
+    </script>
+    </head>
+    <body>
+        <div class="window">
+            <div class="buffer main">
+                <ul>
+                    <li class="color_header">Users/matthew/</li>
+                    <li><span class="color_third">|</span><span class="color_second">+</span><a id="about" href="#about">About</a><span class="color_second">/</span></li>
+                    <li><span class="color_third">|</span><span class="color_second">+</span><a id="games" href="#games">Games</a><span class="color_second">/</span></li>
+                    <li><span class="color_third">|</span><span class="color_second">+</span><a id="music" href="#music">Music</a><span class="color_second">/</span></li>
+                    <li><span class="color_third">|</span><span class="color_second">+</span><a id="videos" href="#videos">Videos</a><span class="color_second">/</span></li>
+                    <li><span class="color_third">|</span><span class="color_second">+</span><a id="art" href="#art">Art</a><span class="color_second">/</span></li>
+
+                    <div id="vertical_fill"></div>
+                    <li><span class="color_blend">~</span></li>
+                </ul>
+            </div>
+        
+            <div class="divider"></div>
+            
+            <div class="divider_numbers"></div>
+        
+            <div class="buffer secondary">
+
+                <div id="secondary_text">
+                    <!-- text will be placed here by the function swapText(pagename) --!>
+                </div>
+
+            </div>
+            
+            <div class="hr">~/index.html</div>
+        </div>
+    </body>
+</html>
+>>>>>>> a7a02086ee3afadcdd83b8a6c559fac75bf91e23

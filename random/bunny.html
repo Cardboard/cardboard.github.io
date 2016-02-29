@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <style type='text/css'>
+            body{
+                width: 100%;}
+            #container{
+                position: absolute;
+                width: 100%;}
+            #bunny{
+                position: absolute;
+                left: -20px;}
+        </style>
+        <script>
+            $(document).ready(function() {
+                setInterval(function (){
+                    var pos = Math.floor( parseInt($('#bunny').css('left'), 10) );
+                    var width = parseInt($("#container").css('width'), 10);
+                    if (pos > width) {
+                        $('#bunny').css('left', '-64px');
+                    } else {
+                        $('#bunny').animate({
+                            left: '+=16'
+                        }, 100);
+                    }
+                }, 100, 'linear');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <img id="bunny" src="http://i.minus.com/iLxnoEiV7mE9.gif" />
+        </div>
+    </body>
+</html>

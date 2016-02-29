@@ -1,0 +1,23 @@
+h2 {
+font-family: 'Port Lligat Slab', serif;
+}
+
+body, html {
+height: 100%;
+width: 100%;
+overflow: hidden;
+cursor: url('https://dl.dropbox.com/u/1039058/content/lukesaber.gif'), crosshair;
+}
+
+.table_main {
+top: 0;    
+left: 0;
+text-align: center;
+height: 100%;
+width: 100%;
+}
+
+.highlight {
+background-color: #F2FFFE;
+color: blue;
+}

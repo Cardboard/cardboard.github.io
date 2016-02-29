@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #container {
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        z-index: 0;
+        background-color: #dddddd;
+        float:left;
+        overflow:hidden;
+    }
+    
+    #image {
+        width: 1680px;
+        height: 2100px;
+        background-image:url("https://dl.dropbox.com/u/1039058/content/background.jpg");   
+        cursor: crosshair;
+        position: relative;
+        left: 0px;
+        background-repeat: repeat-y;
+        z-index: 2;
+    }
+    
+    #text {
+        position: relative;
+        top: 10px;
+        z-index: 3;
+        float: left;
+    }
+    
+</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#button').click(function() {
+                $('.scroll').animate({
+                    top: '-1050px'
+                }, 1000, function() {
+                    $('#text').animate({
+                        top: '10px'
+                    }, '500');
+                } );
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="button">SUPER TEXT!</button>
+    <div id="container">
+        <div id="text" class="scroll">HELLO THERE</div>
+        <div id="image" class="scroll"></div> 
+    </div>
+</body>
+</html>

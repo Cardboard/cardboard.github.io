@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    var hash = window.location.hash;
+    hash = hash.substr(1);
+    console.log(hash)
+</script>
+
+<script>
+$(document).ready(function() {
+    $("#button").click(function() {
+        $("#text").each( function() {
+            if (hash != '' && hash != / */) {
+                //var replaceChar = new RegExp(hash, 'g');
+                //var newHTML = $(this).html().replace(replaceChar, '<img src = "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Letter_e.svg/50px-Letter_e.svg.png" />');
+                var newHTML = hash;
+                $(this).html(newHTML);
+            }
+        });
+    });
+});
+</script>
+</head>
+
+<body>
+<p id="text">HELLO THIS IS TEXT</p>
+<button id="button">CONVERT</button>
+</body>
+</html>

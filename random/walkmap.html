@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".bm").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "hidden");
+                    });
+                    $(".m").css("visibility", "visible");
+                });
+                $(".bt").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "hidden");
+                    });
+                    $(".t").css("visibility", "visible");
+                });
+                $(".bw").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "hidden");
+                    });
+                    $(".w").css("visibility", "visible");
+                });
+                $(".br").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "hidden");
+                    });
+                    $(".r").css("visibility", "visible");
+                });
+                $(".bf").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "hidden");
+                    });
+                    $(".f").css("visibility", "visible");
+                });
+                $(".ball").click(function() {
+                    $(".day").each(function() {
+                        $(this).css("visibility", "visible");
+                    });
+                });
+            });
+        </script>
+        <style type="text/css">
+            .image {
+                position: absolute;
+                margin-left: 25px;
+                margin-top: 25px;
+            }
+            .day {
+                visibility: hidden;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <!-- IMAGES -->
+        <img class="image bg" src="walkmap/walkmap_bg.png">
+        <img class="image m day" src="walkmap/walkmap_m.png">
+        <img class="image t day" src="walkmap/walkmap_t.png">
+        <img class="image w day" src="walkmap/walkmap_w.png">
+        <img class="image r day" src="walkmap/walkmap_r.png">
+        <img class="image f day" src="walkmap/walkmap_f.png">
+
+        <!-- BUTTONS -->
+        <button type="button" class="bm">Monday</button>
+        <button type="button" class="bt">Tuesday</button>
+        <button type="button" class="bw">Wednesday</button>
+        <button type="button" class="br">Thursday</button>
+        <button type="button" class="bf">Friday</button>
+        <button type="button" class="ball">Show All</button>
+    </body>
+</html>
