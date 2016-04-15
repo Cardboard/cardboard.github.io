@@ -6,6 +6,11 @@
                 <li>In the vein of the glorious LCD games of the past</li>
                 <li>Created in an hour for <a href=http://onehourgamejam.com/">one hour game jam</a>
             </ul>
+        <li><a href="http://www.wampastompa.com/games/man_nam/">man_nam</a></li>
+            <ul>
+                <li>More of a test than a game (trying out a new game library)</li>
+                <li><em>You have to keep moving forward</em></li>
+            </ul>
         <li><a href="http://ludumdare.com/compo/ludum-dare-33/?action=preview&uid=16294">CRT TV</a><span class="color_second">+</span></li>
             <ul>
                 <li>Somewhat buggy 3D platformer where you play as a CRT TV</li>
