@@ -103,15 +103,33 @@
 
                 // set colors of links (highlighting the current tab)
                 if (page == "about") {
-                    $("#about").css("color", "white");
-                } else if (page == "games") {
+                    $("#about").css("color", $(".color_third").css("color"));
+                } else {
+                    $("#about").css("color", $("a").css("color"));
+                }
+
+                if (page == "games") {
                     $("#games").css("color", $(".color_third").css("color"));
-                } else if (page == "music") {
+                } else {
+                    $("#games").css("color", $("a").css("color"));
+                }
+
+                if (page == "music") {
                     $("#music").css("color", $(".color_third").css("color"));
-                } else if (page == "videos") {
+                } else {
+                    $("#music").css("color", $("a").css("color"));
+                }
+
+                if (page == "videos") {
                     $("#videos").css("color", $(".color_third").css("color"));
-                } else if (page == "art") {
+                } else {
+                    $("#videos").css("color", $("a").css("color"));
+                }
+                    
+                if (page == "art") {
                     $("#art").css("color", $(".color_third").css("color"));
+                } else {
+                    $("#art").css("color", $("a").css("color"));
                 }
             }
         }; // end refreshPage
