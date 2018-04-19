@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="/src/assets/favicon.png"/>
+    <title>hem</title>
+  </head>
+  <body>
+    <div id="banner"></div>
+    <div id="app"></div>
+    <script src="/build.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 150) {
+                    $('#to_top:hidden').stop(true, true).fadeIn();
+                } else {
+                    $('#to_top').stop(true, true).fadeOut();
+                }
+            });
+
+            $("#to_top").click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                    }, 300);
+
+            });
+        });
+    </script>
+
+  </body>
+</html>
